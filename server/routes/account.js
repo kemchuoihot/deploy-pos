@@ -3,7 +3,7 @@ const router = express.Router();
 const Account = require('../models/Account');
 const bcrypt = require('bcrypt')
 const {validationResult} = require('express-validator');
-const signupValidator = require('./validator/signupValidator');
+// const signupValidator = require('./validator/signupValidator');
 const midAdd = require('../middleware/login');
 const jwt = require('jsonwebtoken');
 const sendEmail = require('../api/sender');
@@ -11,7 +11,7 @@ const sendEmail = require('../api/sender');
 router.get('/', (req, res) => {
     res.send("Staff page")
 });
-router.post('/',midAdd,signupValidator,async (req,res) =>{
+router.post('/',midAdd,async (req,res) =>{
     try {
         const account = await Account.findOne({email: req.body.email});
         if(account){
@@ -26,7 +26,7 @@ router.post('/',midAdd,signupValidator,async (req,res) =>{
         const user = new Account({name:name,email:email,username:username,password:hashPassword});
         await user.save();
         const token = jwt.sign(user.toJSON(),process.env.JWTPRIVATEKEY,{expiresIn: '1h'});
-        await sendEmail(email,'Token-to-Login',`https://deploy-pos.vercel.app/verify?token=${token}`);
+        // await sendEmail(email,'Token-to-Login',`https://deploy-pos.vercel.app/verify?token=${token}`);
 
         res.status(201).send({message:"Success to create account!"})
 
