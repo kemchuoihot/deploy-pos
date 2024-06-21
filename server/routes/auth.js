@@ -74,8 +74,8 @@ router.post('/newtoken', async (req, res) => {
     try {
         const account = await Account.findOne({email: req.body.email});
         console.log(account)
-        const token = jwt.sign(account.toJSON(),process.env.JWTPRIVATEKEY,{expiresIn: '1m'});
-        await sendEmail(req.body.email,'Login',`http://localhost:3000/verify?token=${token}`);
+        const token = jwt.sign(account.toJSON(),process.env.JWTPRIVATEKEY,{expiresIn: '1h'});
+        await sendEmail(req.body.email,'Token-to-Login',`https://deploy-pos.vercel.app/verify?token=${token}`);
         res.status(201).send({message:"Success to resend gmail!"})
         
     } catch (error) {
