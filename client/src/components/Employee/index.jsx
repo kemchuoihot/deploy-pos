@@ -48,6 +48,7 @@ const Employee = () => {
     };
 
     const handleSubmit = async (event) => {
+        const navigate = useNavigate();
         setLoading(true);
         event.preventDefault();
         try {
@@ -56,7 +57,7 @@ const Employee = () => {
             }})
             .then((result) => {
                 setLoading(false);
-                navigte("/dashboard/employee");
+                navigate("/dashboard/employee");
             })
             console.log(response);
         } catch (error) {
