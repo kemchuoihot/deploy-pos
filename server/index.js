@@ -16,7 +16,14 @@ const order = require('./routes/order');
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: function (origin, callback) {
+    const allowedOrigins = ['https://pos-server-beige.vercel.app', 'https://pos-vercel-frontend.vercel.app'];
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
