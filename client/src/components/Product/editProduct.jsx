@@ -48,7 +48,7 @@ const editProduct = () =>{
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/product/edit",{id,name,barcode,brand,color,price,photos,desc,status,importPrice})
+            const response = await axios.post("https://pos-server-beige.vercel.app/product/edit",{id,name,barcode,brand,color,price,photos,desc,status,importPrice})
             .then((result) => {
                 setLoading(false);
                 navigte("/dashboard/product");

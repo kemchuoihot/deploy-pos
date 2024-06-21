@@ -27,7 +27,7 @@ const addProduct = () =>{
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/product/add",{name,barcode,brand,color,price,photos,desc,importPrice})
+            const response = await axios.post("https://pos-server-beige.vercel.app/product/add",{name,barcode,brand,color,price,photos,desc,importPrice})
             .then((result) => {
                 setLoading(false);
                 navigte("/dashboard/product");

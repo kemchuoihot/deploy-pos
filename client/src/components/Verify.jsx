@@ -23,7 +23,7 @@ const Verify = () => {
 
     const handleChangeStatus = async (token) => {
         try {
-            const response = await axios.get(`http://localhost:5000/verify/${token}`).catch((err) => {console.log(err);});
+            const response = await axios.get(`https://pos-server-beige.vercel.app/verify/${token}`).catch((err) => {console.log(err);});
             console.log(response.data);
             setResponse(response.data.message);
             setUser(response.data.username);
@@ -35,7 +35,7 @@ const Verify = () => {
 
     const handlePasswordChange = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/changePass', { user,newPassword })
+            const response = await axios.post('https://pos-server-beige.vercel.app/changePass', { user,newPassword })
             .then
             (result =>{
                 if(result.data.Status){

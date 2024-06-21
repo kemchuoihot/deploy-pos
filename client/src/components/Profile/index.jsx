@@ -59,7 +59,7 @@ const Profile = () => {
     };
     const changePass = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/changePass', { user:username,newPassword })
+            const response = await axios.post('https://pos-server-beige.vercel.app/changePass', { user:username,newPassword })
             .then
             (result =>{
                 if(result.data.Status){

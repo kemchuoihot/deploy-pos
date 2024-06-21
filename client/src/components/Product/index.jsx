@@ -22,7 +22,7 @@ const Product = () => {
     const fetchData = () => {
         const account = JSON.parse(localStorage.getItem("account"));
         setRole(account.role);
-        axios.get('http://localhost:5000/product')
+        axios.get('https://pos-server-beige.vercel.app/product')
         .then(result =>{
             if(result.data.Status){
                 setPhones(result.data.phones);
@@ -34,7 +34,7 @@ const Product = () => {
     };
 
     const deleteProduct = () => {
-        axios.post('http://localhost:5000/product/delete', {id: deleteValue})
+        axios.post('https://pos-server-beige.vercel.app/product/delete', {id: deleteValue})
         .then(result =>{
             
             if(result.data.Status){

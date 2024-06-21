@@ -19,7 +19,7 @@ const add_employee = () =>{
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/account",{name,email},{headers: {
+            const response = await axios.post("https://pos-server-beige.vercel.app/account",{name,email},{headers: {
                 'authorization':  `${localStorage.getItem("token")}`,
             }})
             .then((result) => {

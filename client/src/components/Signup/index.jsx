@@ -13,7 +13,7 @@ const Signup = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/account",{name,email,password});
+            const response = await axios.post("https://pos-server-beige.vercel.app/account",{name,email,password});
             console.log(response);
             navigate("/login");
         } catch (error) {

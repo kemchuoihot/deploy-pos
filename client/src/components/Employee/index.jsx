@@ -37,7 +37,7 @@ const Employee = () => {
     },[]);
 
     const fetchData = () => {
-        axios.get('http://localhost:5000/auth/employee')
+        axios.get('https://pos-server-beige.vercel.app/auth/employee')
         .then(result =>{
             if(result.data.Status){
                 setEmployee(result.data.employee);
@@ -51,7 +51,7 @@ const Employee = () => {
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/account",{name,email},{headers: {
+            const response = await axios.post("https://pos-server-beige.vercel.app/account",{name,email},{headers: {
                 'authorization':  `${localStorage.getItem("token")}`,
             }})
             .then((result) => {
@@ -74,7 +74,7 @@ const Employee = () => {
         }, 1000);
     };
     const blockEmployee = () => {
-        axios.post('http://localhost:5000/auth/block_employee', {email: block})
+        axios.post('https://pos-server-beige.vercel.app/auth/block_employee', {email: block})
         .then(result =>{
             if(result.data.Status){
                 fetchData();
@@ -85,7 +85,7 @@ const Employee = () => {
         }).catch(error =>{ console.log(error)});
     }
     const resend = (email) => {
-        axios.post('http://localhost:5000/auth/newtoken', {email})
+        axios.post('https://pos-server-beige.vercel.app/auth/newtoken', {email})
         .then(result =>{
             if(result.data.Status){
                 fetchData();

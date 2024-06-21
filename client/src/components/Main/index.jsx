@@ -39,7 +39,7 @@ const Main = () => {
   useEffect(() => {
     const fetchIphoneData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/home');
+            const response = await axios.get('https://pos-server-beige.vercel.app/home');
             setIphoneItems(response.data.filter(item => item.brand === 'Apple'));
             console.log(response.data);
         }
@@ -58,7 +58,7 @@ const Main = () => {
   useEffect(() => {
     const fetchAndroidData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/android');
+            const response = await axios.get('https://pos-server-beige.vercel.app/android');
             setAndroidItems(response.data.filter(item => item.brand === 'Android'));
             console.log(response.data);
         }
@@ -147,7 +147,7 @@ const handleCheckout = async () => {
   setShowModalCheckout(true);
   
   try {
-    const response = await axios.post('http://localhost:5000/customer/checkout', { phoneNumber });
+    const response = await axios.post('https://pos-server-beige.vercel.app/customer/checkout', { phoneNumber });
     const { success, customer, message: msg } = response.data;
 
     if (success) {
@@ -166,7 +166,7 @@ const handleCheckout = async () => {
 
 const handleConfirmPhoneNumber = async () => {
   try {
-    const response = await axios.post('http://localhost:5000/customer/checkout', { phoneNumber });
+    const response = await axios.post('https://pos-server-beige.vercel.app/customer/checkout', { phoneNumber });
     console.log('Response:', response);
     console.log('Response data:', response.data);
     const { success, customer, message: msg } = response.data;
@@ -227,7 +227,7 @@ const handleCreateAccount = async (e) => {
   }
 
   try {
-    const response = await axios.post('http://localhost:5000/customer/create', {
+    const response = await axios.post('https://pos-server-beige.vercel.app/customer/create', {
       fullName,
       address,
       phoneNumber: phoneNumber.trim(),
@@ -263,7 +263,7 @@ const handleCreateAccount = async (e) => {
 const searchProductByBarcode = async () => {
   if (selectedBrand === 'APPLE') {
     try {
-      const response = await axios.get(`http://localhost:5000/home/barcode/${barcode}`);
+      const response = await axios.get(`https://pos-server-beige.vercel.app/home/barcode/${barcode}`);
       setProduct(response.data);
       addToCart(response.data)
       setError('');
@@ -273,7 +273,7 @@ const searchProductByBarcode = async () => {
     }
   } else if (selectedBrand === 'ANDROID') {
     try {
-      const response = await axios.get(`http://localhost:5000/android/barcode/${barcode}`);
+      const response = await axios.get(`https://pos-server-beige.vercel.app/android/barcode/${barcode}`);
       setProduct(response.data);
       setError('');
     } catch (error) {
@@ -290,7 +290,7 @@ const clearInfor = () => {
 
 const payMention = async () => {
   try {
-    const responseOrder = await axios.post('http://localhost:5000/order', {phoneNumber,total: orderTotalCost()});
+    const responseOrder = await axios.post('https://pos-server-beige.vercel.app/order', {phoneNumber,total: orderTotalCost()});
     // console.log('Response Order:', responseOrder.data);
     // alert('Payment success');
     setShowModalCheckout(false);
