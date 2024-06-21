@@ -11,7 +11,7 @@ const sendEmail = require('../api/sender');
 router.get('/', (req, res) => {
     res.send("Staff page")
 });
-router.post('/',async (req,res) =>{
+router.post('/', (req,res) =>{
     try {
         // Validate request body
         if (!req.body.email || !req.body.name) {

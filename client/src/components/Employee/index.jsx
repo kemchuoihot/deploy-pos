@@ -52,8 +52,7 @@ const Employee = () => {
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.post("https://pos-server-beige.vercel.app/account", {name, email}, {
-            });
+            const response = await axios.post("https://pos-server-beige.vercel.app/account", {name, email});
             setLoading(false);
             // navigate("/dashboard/employee");
             console.log(response); // Now this will correctly log the Axios response
