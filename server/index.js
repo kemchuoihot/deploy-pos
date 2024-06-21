@@ -3,15 +3,15 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const accountRoutes = require('./controller/routes/account');
-const authRoutes = require('./controller/routes/auth');
-const homeRoutes = require('./controller/routes/home');
-const androidRoutes = require('./controller/routes/android');
-const customerRoutes = require('./controller/routes/customer');
-const verifyRoutes = require('./controller/routes/verify')
-const productsRoutes = require('./controller/routes/product')
-const changePass = require('./controller/routes/changePass');
-const order = require('./controller/routes/order');
+const accountRoutes = require('./routes/account');
+const authRoutes = require('./routes/auth');
+const homeRoutes = require('./routes/home');
+const androidRoutes = require('./routes/android');
+const customerRoutes = require('./routes/customer');
+const verifyRoutes = require('./routes/verify')
+const productsRoutes = require('./routes/product')
+const changePass = require('./routes/changePass');
+const order = require('./routes/order');
 
 const app = express();
 
@@ -64,14 +64,14 @@ app.use("/changePass",changePass);
 
 app.use(cors());
 
-if(process.env.NODE_ENV === 'production'){
-  const path = require('path');
-  app.use(express.static('client/build'));
-  app.use('/', express.static(path.join(__dirname, 'client', 'build')));
-  app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'client','build','index.html'));
-  })
-}
+// if(process.env.NODE_ENV === 'production'){
+//   const path = require('path');
+//   app.use(express.static('client/build'));
+//   app.use('/', express.static(path.join(__dirname, 'client', 'build')));
+//   app.get('*',(req,res)=>{
+//     res.sendFile(path.join(__dirname,'client','build','index.html'));
+//   })
+// }
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
