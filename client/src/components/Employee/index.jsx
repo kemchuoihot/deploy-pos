@@ -52,20 +52,19 @@ const Employee = () => {
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.post("https://pos-server-beige.vercel.app/account",{name,email},{headers: {
-                'authorization':  `${localStorage.getItem("token")}`,
-            }})
-            .then((result) => {
-                setLoading(false);
-                navigate("/dashboard/employee");
-            })
-            console.log(response);
+            const response = await axios.post("https://pos-server-beige.vercel.app/account", {name, email}, {
+                headers: {
+                    'authorization': `${localStorage.getItem("token")}`,
+                },
+            });
+            setLoading(false);
+            navigate("/dashboard/employee");
+            console.log(response); // Now this will correctly log the Axios response
         } catch (error) {
             setLoading(false);
-            console.log(error);
-            setError(error.response.data.message);
+            console.error(error);
+            setError(error.response?.data?.message || "An error occurred");
         }
-    }
 
     const handleRefresh = () => {
         setLoading(true);
