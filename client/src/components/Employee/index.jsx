@@ -48,17 +48,14 @@ const Employee = () => {
     };
 
     const handleSubmit = async (event) => {
-        const navigate = useNavigate();
+        // const navigate = useNavigate();
         setLoading(true);
         event.preventDefault();
         try {
             const response = await axios.post("https://pos-server-beige.vercel.app/account", {name, email}, {
-                headers: {
-                    'authorization': `${localStorage.getItem("token")}`,
-                },
             });
             setLoading(false);
-            navigate("/dashboard/employee");
+            // navigate("/dashboard/employee");
             console.log(response); // Now this will correctly log the Axios response
         } catch (error) {
             setLoading(false);
