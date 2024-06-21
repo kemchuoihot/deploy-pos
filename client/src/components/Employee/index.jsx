@@ -65,6 +65,7 @@ const Employee = () => {
             console.error(error);
             setError(error.response?.data?.message || "An error occurred");
         }
+    }
 
     const handleRefresh = () => {
         setLoading(true);
