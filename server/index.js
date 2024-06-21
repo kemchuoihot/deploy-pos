@@ -34,13 +34,16 @@ const connect = async () => {
   .catch(err => console.log("Error connecting")
    );
 }
-mongoose.connection.on("disconnected", () =>{
-  console.log("Disconnected from Mongo");
-})
-mongoose.connection.on("connected", () =>{
-  console.log("MongoDB is connected");
-})
-
+// mongoose.connection.on("disconnected", () =>{
+//   console.log("Disconnected from Mongo");
+// })
+// mongoose.connection.on("connected", () =>{
+//   console.log("MongoDB is connected");
+// })
+mongoose.connect(uri);
+app.get('/', (req, res) =>
+  res.send('oke')
+);
 app.use('/', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
