@@ -47,20 +47,21 @@ const Employee = () => {
         }).catch(error =>{ console.log(error)});
     };
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         // const navigate = useNavigate();
         setLoading(true);
         event.preventDefault();
-        try {
-            const response = await axios.post("https://pos-server-beige.vercel.app/account", {name, email});
-            setLoading(false);
-            // navigate("/dashboard/employee");
-            console.log(response); // Now this will correctly log the Axios response
-        } catch (error) {
-            setLoading(false);
-            console.error(error);
-            setError(error.response?.data?.message || "An error occurred");
-        }
+        axios.post("https://pos-server-beige.vercel.app/account", {name, email})
+            .then(response => {
+                setLoading(false);
+                // navigate("/dashboard/employee");
+                console.log(response); // Now this will correctly log the Axios response
+            })
+            .catch(error => {
+                setLoading(false);
+                console.error(error);
+                setError(error.response?.data?.message || "An error occurred");
+            });
     }
 
     const handleRefresh = () => {
