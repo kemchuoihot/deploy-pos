@@ -1,0 +1,47 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Final Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kemchuoihot/Nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kemchuoihot/Nodejs/issues"
+  },
+  "homepage": "https://github.com/kemchuoihot/Nodejs#readme",
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^3.4.1",
+    "bootstrap-icons": "^1.11.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "joi": "^17.11.0",
+    "joi-password-complexity": "^5.2.0",
+    "jquery": "^3.7.1",
+    "jquery-ui-dist": "^1.13.2",
+    "jsonwebtoken": "^9.0.2",
+    "ldrs": "^1.0.1",
+    "mongodb": "^6.1.0",
+    "mongoose": "^7.6.1",
+    "mongoose-long": "^0.8.0",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.1",
+    "react-bootstrap": "^2.9.1",
+    "react-helmet": "^6.1.0",
+    "react-icon": "^1.0.0"
+  }
+}

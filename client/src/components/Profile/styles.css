@@ -1,0 +1,10 @@
+.vh-100{
+    background-color: #eee;
+}
+.img-fluid{
+    width: 50%;
+}
+.card{
+    border-radius: 15px;
+
+}

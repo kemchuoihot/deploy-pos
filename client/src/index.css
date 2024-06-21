@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Montserrat:ital,wght@0,400;0,500;0,900;1,100;1,300&family=Poppins:wght@100;300;500;600&family=Ubuntu&display=swap');
+body {
+  margin: 0;
+  font-family: 'Montserrat',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  
+  /* font-family: 'Poppins', sans-serif; */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+
+/* Css tổng */

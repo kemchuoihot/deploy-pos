@@ -1,0 +1,104 @@
+
+/* CSS TỔNG QUÁT */
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.add-to-cart-button {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+
+.card-img-iphone {
+  padding: 7px;
+}
+
+.name {
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+    color: red;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.desc {
+  font-size: 13px;
+  color: grey;
+}
+
+/* CSS cho hiệu ứng Modal */
+.modal {
+  display: flex; /* Ẩn modal mặc định */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-dialog {
+  position: relative;
+  margin: auto;
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  animation-name: modal-animation;
+  animation-duration: 0.3s;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+@keyframes modal-animation {
+  from {
+    top: -50%;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.customer-info {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.customer-info h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.customer-info p {
+  margin-bottom: 5px;
+}
+
+/* Các style khác có thể được thêm vào tùy theo ý của bạn */
+.form-control {
+  margin-bottom: 10px; /* Thêm khoảng cách dưới cho mỗi ô textbox */
+}
+
