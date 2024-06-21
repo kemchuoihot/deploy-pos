@@ -16,7 +16,7 @@ const order = require('./routes/order');
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://deploy-pos.vercel.app'], // Add your new origin here
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
