@@ -3,15 +3,15 @@ const router = express.Router();
 const Account = require('../models/Account');
 const bcrypt = require('bcrypt')
 const {validationResult} = require('express-validator');
-const signupValidator = require('./validator/signupValidator');
-const midAdd = require('../middleware/login');
+// const signupValidator = require('./validator/signupValidator');
+// const midAdd = require('../middleware/login');
 const jwt = require('jsonwebtoken');
 const sendEmail = require('../api/sender');
 
 router.get('/', (req, res) => {
     res.send("Staff page")
 });
-router.post('/',midAdd,signupValidator,async (req,res) =>{
+router.post('/',async (req,res) =>{
     try {
         // Validate request body
         if (!req.body.email || !req.body.name) {
