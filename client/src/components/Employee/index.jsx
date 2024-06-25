@@ -211,6 +211,7 @@ const Employee = () => {
                     <input type="text" className="form-control mb-3" onChange={(e) => setName(e.target.value)} />
                     <label>Email:</label>
                     <input type="text" className="form-control mb-3" onChange={(e) => setEmail(e.target.value)} />
+                    {error && <span className="text-danger">{error}</span>}
                 </Modal.Body>
                 <Modal.Footer>
                     <button className="btn btn-secondary" onClick={handleCloseModalAdd}>
