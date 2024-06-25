@@ -70,10 +70,12 @@ const Employee = () => {
             }
           })
           .then(response => {
+            setLoading(false);
             console.log(response);
           })
           .catch(error => {
-            console.error("Error making the request:", error.response.data);
+            setLoading(false);
+            setError(error.response?.data?.message || "An error occurred");
           });
     }
 
