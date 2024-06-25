@@ -72,6 +72,9 @@ const Employee = () => {
           .then(response => {
             setLoading(false);
             console.log(response);
+            alert(response.data.message);
+            navigate("/dashboard/employee");
+            setError("");
           })
           .catch(error => {
             setLoading(false);
@@ -214,7 +217,7 @@ const Employee = () => {
                     {error && <span className="text-danger">{error}</span>}
                 </Modal.Body>
                 <Modal.Footer>
-                    <button className="btn btn-secondary" onClick={handleCloseModalAdd}>
+                    <button className="btn btn-secondary" onClick={() => {setError("");handleCloseModalAdd}}>
                         Close
                     </button>
                     <button className="btn btn-primary"  onClick={handleSubmit}>
