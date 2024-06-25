@@ -35,6 +35,9 @@ const Employee = () => {
     useEffect(() => { 
         fetchData();
     },[]);
+    useEffect(() => {
+        setError("");
+    },[showModalAdd]);
 
     const fetchData = () => {
         axios.get('https://pos-server-beige.vercel.app/auth/employee')
@@ -217,7 +220,7 @@ const Employee = () => {
                     {error && <span className="text-danger">{error}</span>}
                 </Modal.Body>
                 <Modal.Footer>
-                    <button className="btn btn-secondary" onClick={() => {setError("");handleCloseModalAdd}}>
+                    <button className="btn btn-secondary" onClick={handleCloseModalAdd}>
                         Close
                     </button>
                     <button className="btn btn-primary"  onClick={handleSubmit}>
