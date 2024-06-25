@@ -75,6 +75,7 @@ const Employee = () => {
           })
           .catch(error => {
             setLoading(false);
+            console.error(error.response?.data?.message || "An  error occurred");
             setError(error.response?.data?.message || "An error occurred");
           });
     }
