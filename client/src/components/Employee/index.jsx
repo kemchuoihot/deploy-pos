@@ -51,17 +51,19 @@ const Employee = () => {
         // const navigate = useNavigate();
         setLoading(true);
         event.preventDefault();
-        axios.post("https://pos-server-beige.vercel.app/account", { email }, {
-            headers: {
-              'Content-Type': 'application/json'
-            }
+        axios.post("https://pos-server-beige.vercel.app/account", {name, email},headers: {
+            'Content-Type': 'application/json'
           })
-          .then(response => {
-            console.log(response);
-          })
-          .catch(error => {
-            console.error("Error making the request:", error.response.data);
-          });
+            .then(response => {
+                setLoading(false);
+                // navigate("/dashboard/employee");
+                console.log(response); // Now this will correctly log the Axios response
+            })
+            .catch(error => {
+                setLoading(false);
+                console.error(error);
+                setError(error.response?.data?.message || "An error occurred");
+            });
     }
 
     const handleRefresh = () => {
