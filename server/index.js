@@ -44,12 +44,11 @@ mongoose.connect(uri);
 app.get('/', (req, res) =>
   res.send('oke')
 );
-// app.use('/', (req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://deploy-pos.vercel.app'); // Allow only this origin or use '*' to allow all
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 
 app.use("/account", accountRoutes);

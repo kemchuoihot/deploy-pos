@@ -52,16 +52,16 @@ const Employee = () => {
         setLoading(true);
         event.preventDefault();
         axios.post("https://pos-server-beige.vercel.app/account", {name, email})
-            .then(response => {
-                setLoading(false);
-                // navigate("/dashboard/employee");
-                console.log(response); // Now this will correctly log the Axios response
-            })
-            .catch(error => {
-                setLoading(false);
-                console.error(error);
-                setError(error.response?.data?.message || "An error occurred");
-            });
+        .then(response => {
+            setLoading(false);
+            // navigate("/dashboard/employee");
+            console.log(response); // Now this will correctly log the Axios response
+        })
+        .catch(error => {
+            setLoading(false);
+            console.error(error);
+            setError(error.response?.data?.message || "An error occurred");
+        });
     }
 
     const handleRefresh = () => {
