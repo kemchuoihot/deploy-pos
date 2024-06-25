@@ -76,7 +76,7 @@ const Employee = () => {
             setLoading(false);
             console.log(response);
             alert(response.data.message);
-            navigate("/dashboard/employee");
+            setShowModalAdd(false);
             setError("");
           })
           .catch(error => {
