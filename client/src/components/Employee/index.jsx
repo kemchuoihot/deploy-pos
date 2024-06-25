@@ -51,9 +51,9 @@ const Employee = () => {
         // const navigate = useNavigate();
         setLoading(true);
         event.preventDefault();
-        axios.post("https://pos-server-beige.vercel.app/account", {name, email},headers: {
+        axios.post("https://pos-server-beige.vercel.app/account", {name, email},{headers: {
             'Content-Type': 'application/json'
-          })
+          }})
             .then(response => {
                 setLoading(false);
                 // navigate("/dashboard/employee");
