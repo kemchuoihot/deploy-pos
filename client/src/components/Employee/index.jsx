@@ -3,17 +3,19 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import axios from "axios";
 import "./styles.css";
 
-import { infinity } from 'ldrs'
-
+import { dotPulse, infinity } from 'ldrs'
 infinity.register()
+dotPulse.register()
 
-// Default values shown
 
 
 const Employee = () => {
+    const [isLoading,setIsLoading] = useState(true);
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [error,setError] = useState("");
@@ -47,6 +49,7 @@ const Employee = () => {
             }else{
                 alert(result.data.Error);
             }
+            setIsLoading(false);
         }).catch(error =>{ console.log(error)});
     };
 
@@ -119,94 +122,103 @@ const Employee = () => {
 
     return(
         <>
-        <div className=" px-5 mt-3">
-            <div className="d-flex justify-content-center">
-                {/* <h1 className='title'>Employee List</h1> */}
-            </div>
+        <div className="px-5 mt-3 min-vh-100">
+        {
+            isLoading &&
+            <l-dot-pulse
+                size="50"
+                speed="2" 
+                color="#6610f2" 
+            ></l-dot-pulse> 
+        }
+        {!isLoading && 
+        <>
             <div className="d-flex justify-content-between">
-                {/* <Link to="/dashboard/add_employee" className="btn btn-add">
-                    Add Employee
-                </Link> */}
-                <button className="btn btn-add" onClick={handleShowModalAdd}>
-                    Add Employee
-                </button>
-                {loading ? ( <l-infinity
-                    size="55"
-                    stroke="4"
-                    stroke-length="0.15"
-                    bg-opacity="0.1"
-                    speed="1.3" 
-                    color="#4f46e5" 
-                    ></l-infinity> )
-                    : <button className="btn ml-2 btn-refresh" onClick={handleRefresh}>Refresh</button>}
-            </div>
-            <div className="mt-3">
-                <table className='table table-striped table-bordered table-hover align-middle mb-0 bg-white'>
-                    <thead className='text-white bg-head borderd'>
-                        <tr>
-                            <th scope='col'>ID</th>
-                            <th scope='col'>Name</th>
-                            <th scope='col'>Email</th>
-                            <th scope='col'>Status</th>
-                            <th scope='col'>Action</th>
-                            <th scope='col'>Block</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {
-                        employee.map((e, index) =>(
-                            <tr key={index}>
-                                <th scope='row' className='idNumber'>{index + 1}</th>
-                                <td>{e.name == 'admin'? <strong>{e.name}</strong> : e.name}</td>
-                                <td>{e.email}</td>
-                                <td>
-                                    {e.status === "inactive" && <span className="badge badge-primary rounded-pill d-inline">Inactive</span>}
-                                    {e.status === "active" && <span className="badge badge-success rounded-pill d-inline">Active</span>}
-                                    {e.status === "block" && <span className="badge badge-danger rounded-pill d-inline">Block</span>}
-                                </td>
-                                <td>
-                                    <Button 
-                                        type="button"
-                                        className ="btn btn-outline-secondary btn-rounded btn-green btn-sm mr-2"
-                                        data-mdb-ripple-color="dark"
-                                        onClick={() => { handleShowEdit(); setBlockModal(e.name); setEmailResent(e.email);}}
-                                        >
-                                    Resend
-                                </Button>
-                                </td>
-                                <td>
-                                    {e.status === "inactive" || e.role ==="admin" ? 
-                                    <Button 
-                                        type="button"
-                                        className = ""
-                                        size='sm'
-                                        data-mdb-ripple-color="dark"
-                                        variant="outline-danger"
-                                        disabled
-                                    >
-                                        Lock
-                                        
-                                    </Button>
-                                 :
-                                
-                                        <Button 
-                                            type="button"
-                                            className = {e.status === "block" ? "btn btn-outline-secondary btn-rounded btn-blue text-white btn-sm mr-2" : "btn btn-outline-secondary btn-rounded btn-red btn-sm mr-2"}
-                                            // className ="btn btn-outline-danger btn-rounded btn-red btn-sm"
-                                            data-mdb-ripple-color="dark"
-                                            onClick={() => { setStatus(e.status);setBlock(e.email); handleShow(); setBlockModal(e.name); }}
-                                        >
-                                            {e.status === "active" ? "Lock":"Unlock"}
-                                            
+                        {/* <Link to="/dashboard/add_employee" className="btn btn-add">
+                            Add Employee
+                        </Link> */}
+                        <button className="btn btn-add" onClick={handleShowModalAdd}>
+                            Add Employee
+                        </button>
+                        {loading ? ( <l-infinity
+                            size="55"
+                            stroke="4"
+                            stroke-length="0.15"
+                            bg-opacity="0.1"
+                            speed="1.3" 
+                            color="#4f46e5" 
+                            ></l-infinity> )
+                            : <button className="btn ml-2 btn-refresh" onClick={handleRefresh}>Refresh</button>}
+                    </div>
+                    <div className="mt-3">
+                        <table className='table table-striped table-bordered table-hover align-middle mb-0 bg-white'>
+                            <thead className='text-white bg-head borderd'>
+                                <tr>
+                                    <th scope='col'>ID</th>
+                                    <th scope='col'>Name</th>
+                                    <th scope='col'>Email</th>
+                                    <th scope='col'>Status</th>
+                                    <th scope='col'>Action</th>
+                                    <th scope='col'>Block</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                employee.map((e, index) =>(
+                                    <tr key={index}>
+                                        <th scope='row' className='idNumber'>{index + 1}</th>
+                                        <td>{e.name == 'admin'? <strong>{e.name}</strong> : e.name}</td>
+                                        <td>{e.email}</td>
+                                        <td>
+                                            {e.status === "inactive" && <span className="badge badge-primary rounded-pill d-inline">Inactive</span>}
+                                            {e.status === "active" && <span className="badge badge-success rounded-pill d-inline">Active</span>}
+                                            {e.status === "block" && <span className="badge badge-danger rounded-pill d-inline">Block</span>}
+                                        </td>
+                                        <td>
+                                            <Button 
+                                                type="button"
+                                                className ="btn btn-outline-secondary btn-rounded btn-green btn-sm mr-2"
+                                                data-mdb-ripple-color="dark"
+                                                onClick={() => { handleShowEdit(); setBlockModal(e.name); setEmailResent(e.email);}}
+                                                >
+                                            Resend
                                         </Button>
-                                    }
-                                </td>
-                            </tr>
-                        ))
-                    }
-                    </tbody>
-                </table>
-            </div>
+                                        </td>
+                                        <td>
+                                            {e.status === "inactive" || e.role ==="admin" ? 
+                                            <Button 
+                                                type="button"
+                                                className = ""
+                                                size='sm'
+                                                data-mdb-ripple-color="dark"
+                                                variant="outline-danger"
+                                                disabled
+                                            >
+                                                Lock
+                                                
+                                            </Button>
+                                        :
+                                        
+                                                <Button 
+                                                    type="button"
+                                                    className = {e.status === "block" ? "btn btn-outline-secondary btn-rounded btn-blue text-white btn-sm mr-2" : "btn btn-outline-secondary btn-rounded btn-red btn-sm mr-2"}
+                                                    // className ="btn btn-outline-danger btn-rounded btn-red btn-sm"
+                                                    data-mdb-ripple-color="dark"
+                                                    onClick={() => { setStatus(e.status);setBlock(e.email); handleShow(); setBlockModal(e.name); }}
+                                                >
+                                                    {e.status === "active" ? "Lock":"Unlock"}
+                                                    
+                                                </Button>
+                                            }
+                                        </td>
+                                    </tr>
+                                ))
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </>
+        }
         </div>
         <Modal className="pt-3" show={showModalAdd} onHide={handleCloseModalAdd}>
                 <Modal.Header>
@@ -217,7 +229,6 @@ const Employee = () => {
                     <input type="text" className="form-control mb-3" onChange={(e) => setName(e.target.value)} />
                     <label>Email:</label>
                     <input type="text" className="form-control mb-3" onChange={(e) => setEmail(e.target.value)} />
-                    {error && <span className="text-danger">{error}</span>}
                 </Modal.Body>
                 <Modal.Footer>
                     <button className="btn btn-secondary" onClick={handleCloseModalAdd}>
