@@ -91,7 +91,7 @@ const Product = () => {
                         ></l-infinity> )
                         : <button className="btn text-white ml-2 btn-refresh" onClick={handleRefresh}>Refresh</button>} */}
                 </div>
-                <div className="mt-3">          
+                <div className="mt-3 table-responsive">          
                     <table className='table table-striped table-hover align-middle mb-0 bg-white'>
                         <thead className='text-white bg-head border'>
                             <tr>
@@ -155,7 +155,7 @@ const Product = () => {
         {/* Modal */}
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-            <Modal.Title>Block employee</Modal.Title>
+            <Modal.Title>Delete?</Modal.Title>
             </Modal.Header>
             <Modal.Body>Do you really want to delete this product !?</Modal.Body>
             <Modal.Footer>

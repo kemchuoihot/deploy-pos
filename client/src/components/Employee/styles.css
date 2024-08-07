@@ -102,3 +102,20 @@ html {
 /* .bg-components{
     background-color: #fff;
 } */
+ 
+@media screen and (max-width: 768px) {
+    .table{
+        font-size: 0.6rem;
+    }
+
+    .table th, .table td{
+        padding: 0.4rem;
+    }
+    .btn{
+        /* padding: 0.1rem; */
+        font-size: 0.6rem;
+    }
+    .px-5{
+        padding: 0.5rem !important;
+    }
+}

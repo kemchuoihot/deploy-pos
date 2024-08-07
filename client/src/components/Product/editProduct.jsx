@@ -63,7 +63,7 @@ const editProduct = () =>{
     
     return(
         <div className="d-flex justify-content-center align-items-center h-95">
-            <div className="p-3 rounded w-25 border">
+            <div className="p-3 rounded border">
                 <h2 className="text-center">Edit product</h2>
                 <form className="row g-1">
                     <div className="col-12 mt-3">
