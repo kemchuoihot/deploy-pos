@@ -108,3 +108,26 @@
     width: 50%;
 }
 
+
+@media screen and (max-width: 768px) {
+    
+    .login_form_container {
+        width: 80%;
+    }
+    .left {
+        width: 100%;
+        border-radius: 20px;
+    }
+    .right {
+        display: none;
+    }
+    .form_container h1{
+        font-size: 2rem;
+    }
+    .input{
+        width: 70%;
+    }
+    .green_btn {
+        width: 60%;
+    }
+}
