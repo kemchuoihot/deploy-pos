@@ -1,27 +1,24 @@
-.signup_container {
+.login_container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(120deg, #3ca7ee, #9b408f);
+     background: linear-gradient(120deg, #3ca7ee, #9b408f);
+
 }
 
-.signup_form_container {
+.login_form_container {
+    height: 500px;
     display: flex;
     justify-content: space-between;
     width: 800px;
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-}
-
-.left {
-    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
 }
 
 .white_btn {
-    background-color: #eee;
+    background-color: white;
     color: black;
     border: none;
     padding: 10px 20px;
@@ -33,22 +30,52 @@
     cursor: pointer;
 }
 
-.right {
+.left {
     width: 50%;
+    
+}
+.right{
+    background-color: #512da8;
+    border-radius: 150px 20px 20px 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: white;
+}
+
+.right span{
+    letter-spacing: 0.5px;
+    padding: 10px 20px;
+    font-size: 15px;
 }
 
 .form_container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
+
 .form_container h1{
     text-align: center;
     margin-bottom: 20px;
+    margin: 10px auto;
 }
+.form_container span{
+    color: #636060;
+    margin-bottom: 30px;
+}
+.form_container a{
+    color: #636060;
+    margin-top: 20px;
+}
+
 .input {
     background-color: #eee;
     border:none;
-    width: 70%;
+    width: 80%;
     padding: 16px 20px;
     margin: 10px auto;
     box-sizing: border-box;
@@ -60,7 +87,7 @@
 }
 
 .green_btn {
-    width: 70%;
+    width: 50%;
     background-color: #512da8;
     color: white;
     border: 1px solid transparent;
@@ -73,6 +100,33 @@
     text-decoration: none;
     display: inline-block;
     font-size: 15px;
-    margin: 20px auto;
+    margin: 30px auto;
     cursor: pointer;
+}
+
+.right {
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .login_form_container {
+        width: 80%;
+    }
+    .left {
+        width: 100%;
+        border-radius: 20px;
+    }
+    .right {
+        display: none;
+    }
+    .form_container h1{
+        font-size: 2rem;
+    }
+    .input{
+        width: 70%;
+    }
+    .green_btn {
+        width: 60%;
+    }
 }

@@ -134,7 +134,7 @@ i:hover{
         position: fixed !important;
         bottom: 0;
         background-color: #fff;
-        padding: 10px;
+        padding: 2px;
         border-radius: 1.5rem 1.5rem 0 0;
         box-shadow: 0 -1px 4px #00000026;
         z-index: 10; /* Ensure the sidebar has a higher z-index */
@@ -147,5 +147,8 @@ i:hover{
     } */
     .dash-icon:before{
         display: none;
+    }
+    .dash-icon .tog{
+        font-size: 1.2rem;
     }
 }
