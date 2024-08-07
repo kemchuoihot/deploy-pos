@@ -43,7 +43,7 @@ const toggle = () => setIsOpen(!isOpen);
     <div className="container-fluid" >
       <div className="row flex-nowrap">
         <div style={{width: isOpen ? "15rem" : "4rem"}} className="bg shadow-sm">
-          <div  className={isOpen ? "d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100" : "d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100 side-bar"}>
+          <div  className={isOpen ? "d-flex flex-column align-items-center align-items-sm-start text-white" : "d-flex flex-column align-items-center align-items-sm-start text-white side-bar"}>
             <div className="toggle w-100 row justify-content-between">
                 <div  style={{display: isOpen ? "block" : "none"}} className="">
                 <Link

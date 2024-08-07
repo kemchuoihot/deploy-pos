@@ -120,6 +120,8 @@ i:hover{
     }
     .side-bar{
         width: 100% !important;
+        z-index: 10;
+        height: 10px !important;
     }
     .toggle{
         display: none;
@@ -129,19 +131,20 @@ i:hover{
         display: flex;
         flex-direction: row !important;
         justify-content: space-between;
-        position: absolute !important;
+        position: fixed !important;
         bottom: 0;
         background-color: #fff;
         padding: 10px;
         border-radius: 1.5rem 1.5rem 0 0;
         box-shadow: 0 -1px 4px #00000026;
+        z-index: 10; /* Ensure the sidebar has a higher z-index */
     }
     .dash-icon{
         display: inline;
     }
-    .bg-main{
+    /* .bg-main{
         z-index: -1;
-    }
+    } */
     .dash-icon:before{
         display: none;
     }
