@@ -42,9 +42,9 @@ const toggle = () => setIsOpen(!isOpen);
   return (
     <div className="container-fluid" >
       <div className="row flex-nowrap">
-        <div style={{width: isOpen ? "17%" : "4.5%"}} className="bg shadow-sm">
+        <div style={{width: isOpen ? "15rem" : "4rem"}} className="bg shadow-sm">
           <div  className={isOpen ? "d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100" : "d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100 side-bar"}>
-            <div className="w-100 row justify-content-between">
+            <div className="toggle w-100 row justify-content-between">
                 <div  style={{display: isOpen ? "block" : "none"}} className="">
                 <Link
                 to="/dashboard"
@@ -61,7 +61,7 @@ const toggle = () => setIsOpen(!isOpen);
               className="w-100 nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
               id="menu"
             >
-              <li className="dash-icon w-100 p-2 align-items-center">
+              <li className="dash-icon p-2 align-items-center">
                 <Link
                 onClick={() => setPage("Dashboard")}
                   to="/dashboard"
@@ -71,7 +71,7 @@ const toggle = () => setIsOpen(!isOpen);
                   <span className="text-purple mask  ms-2" style={{display: isOpen ? "inline" : "none"}}>Dashboard</span>
                 </Link>
               </li>
-              {role == "admin" && (<li className="dash-icon w-100 p-2">
+              {role == "admin" && (<li className="dash-icon p-2">
                 <Link
                 onClick={() => setPage("Employee")}
                 
@@ -84,7 +84,7 @@ const toggle = () => setIsOpen(!isOpen);
                   </span>
                 </Link>
               </li>)}
-              <li className="dash-icon w-100 p-2">
+              <li className="dash-icon p-2">
                 <Link
                 onClick={() => setPage("Product")}
                   to="/dashboard/product"
@@ -94,7 +94,7 @@ const toggle = () => setIsOpen(!isOpen);
                   <span className="ms-2 text-purple" style={{display: isOpen ? "inline" : "none"}}>Product</span>
                 </Link>
               </li>
-              <li className="dash-icon w-100 p-2">
+              <li className="dash-icon p-2">
                 <Link
                 onClick={() => setPage("Customer")}
                   to="/dashboard/customer"
@@ -104,7 +104,7 @@ const toggle = () => setIsOpen(!isOpen);
                   <span className="ms-2 text-purple" style={{display: isOpen ? "inline" : "none"}}>Customer</span>
                 </Link>
               </li>
-              <li className="dash-icon w-100 p-2">
+              <li className="dash-icon p-2">
                 <Link
                 onClick={() => setPage("Profile")}
                   to="/dashboard/profile"
@@ -114,7 +114,7 @@ const toggle = () => setIsOpen(!isOpen);
                   <span className="ms-2 text-purple" style={{display: isOpen ? "inline" : "none"}}>Profile</span>
                 </Link>
               </li>
-              <li className="dash-icon w-100 pt-2 pb-2" 
+              <li className="dash-icon pt-2 pb-2" 
               onClick={handleLogout}
               >
               <Link
