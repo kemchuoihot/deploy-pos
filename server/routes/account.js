@@ -28,7 +28,7 @@ router.post('/', async (req,res) =>{
         // Generate a strong default password (consider using a library to generate this)
         const defaultPassword = username;
         const hashPassword = await bcrypt.hash(defaultPassword, 10);
-        const user = new Account({name, email, username, password: hashPassword});
+        const user = new Account({name:name,email:email,username:username,password:hashPassword});
         await user.save();
     
         // Ensure JWTPRIVATEKEY is defined

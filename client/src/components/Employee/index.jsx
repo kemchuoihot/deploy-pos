@@ -227,6 +227,7 @@ const Employee = () => {
                     <input type="text" className="form-control mb-3" onChange={(e) => setName(e.target.value)} />
                     <label>Email:</label>
                     <input type="text" className="form-control mb-3" onChange={(e) => setEmail(e.target.value)} />
+                    {error && <div className="alert alert-danger text-center m-auto col-11">{error}</div>}
                 </Modal.Body>
                 <Modal.Footer>
                     <button className="btn btn-secondary" onClick={handleCloseModalAdd}>
